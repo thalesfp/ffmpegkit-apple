@@ -31,7 +31,7 @@ brew install autoconf automake libtool pkg-config nasm meson ninja texinfo gnu-s
 scripts/build.sh
 ```
 
-The xcframeworks land in `build/merged`. To release: zip each one with `ditto -c -k --sequesterRsrc --keepParent <lib>.xcframework <lib>.xcframework.zip`, upload the zips to a GitHub release named after the version, and update `version` and the checksums (`swift package compute-checksum <zip>`) in `Package.swift`.
+The xcframeworks land in `build/merged`. To release: zip each one with `ditto -c -k --norsrc --noextattr --noqtn --noacl --keepParent <lib>.xcframework <lib>.xcframework.zip` (resource forks or `__MACOSX` entries break SwiftPM), upload the zips to a GitHub release named after the version, and update `version` and the checksums (`swift package compute-checksum <zip>`) in `Package.swift`.
 
 ## License
 
